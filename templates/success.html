@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>success</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
+</head>
+<body>
+	<div id="container">
+		<div id="valid">
+
+			<div id="green">
+				<p>The email {{ session['email'] }} is a VALID email! Thank you!</p>
+			</div>
+			<div id="list">
+				<h4>Email Addresses Entered</h4>
+				{% for user in all_users: %}
+				<p>{{ user['email'] }}--{{ user['created_at']}} <a href="/delete/{{user['id']}}"> Delete </a></p>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</body>
+</html>
